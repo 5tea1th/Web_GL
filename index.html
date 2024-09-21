@@ -20,6 +20,16 @@
         canvas.height = window.innerHeight;
         gl.viewport(0,0,canvas.width,canvas.height);
 
+        const bird = {
+            x: 100,
+            y: canvas.height / 2,
+            width: 20,
+            height: 15,
+            velocity: 0,
+            gravity: 0.6,
+            lift: -10,
+        };
+
     </script>
 </body>
 </html>
