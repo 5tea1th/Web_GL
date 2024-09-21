@@ -185,8 +185,22 @@
             updateBird();
             updateObstacles();
 
-            
+            for (let i = 0; i < obstacles.length; i++) {
+                const obs = obstacles[i];
+                drawRect(obs.x, 0, obstacleWidth, obs.topHeight, [0, 1, 0, 1]);
+                drawRect(obs.x, canvas.height - obs.bottomHeight, obstacleWidth, obs.bottomHeight, [0, 1, 0, 1]);
+            }
+
+
+            if (!checkCollisions()) {
+                requestAnimationFrame(gameLoop);
+            } else {
+                alert("Game Over! Refresh the page to play again.");
+            }
         }
+
+
+
 
     </script>
 </body>
