@@ -117,7 +117,7 @@
             gl.uniform4fv(colorLocation, color);
             gl.drawArrays(gl.TRIANGLES, 0, 6);
         }
-        
+
         function updateBird() {
             bird.velocity += bird.gravity;
             bird.y += bird.velocity;
@@ -134,7 +134,15 @@
                 bird.velocity = 0;
             }
         }
-
+        function createObstacle() {
+            const topHeight = Math.random() * (canvas.height - obstacleGap);
+            const bottomHeight = canvas.height - topHeight - obstacleGap;
+            obstacles.push({
+                x: canvas.width,
+                topHeight: topHeight,
+                bottomHeight: bottomHeight
+            });
+        }
     </script>
 </body>
 </html>
