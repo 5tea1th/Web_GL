@@ -90,7 +90,17 @@
             }
             return program;
         }
-        
+        const program = initShaders();
+        const positionLocation = gl.getAttribLocation(program, 'a_position');
+        const resolutionLocation = gl.getUniformLocation(program, 'u_resolution');
+        const colorLocation = gl.getUniformLocation(program, 'u_color');
+
+
+        const positionBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+        gl.enableVertexAttribArray(positionLocation);
+        gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
+
     </script>
 </body>
 </html>
