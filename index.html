@@ -160,6 +160,20 @@
                 createObstacle();
             }
         }
+        
+        function checkCollisions() {
+            for (let i = 0; i < obstacles.length; i++) {
+                const obs = obstacles[i];
+                if (
+                    bird.x < obs.x + obstacleWidth &&
+                    bird.x + bird.width > obs.x &&
+                    (bird.y < obs.topHeight || bird.y + bird.height > canvas.height - obs.bottomHeight)
+                ) {
+                    return true;
+                }
+            }
+            return false;
+        }
 
     </script>
 </body>
