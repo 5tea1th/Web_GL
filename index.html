@@ -101,6 +101,23 @@
         gl.enableVertexAttribArray(positionLocation);
         gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
 
+
+        function drawRect(x, y, width, height, color) {
+            gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+                x, y,
+                x + width, y,
+                x, y + height,
+                x, y + height,
+                x + width, y,
+                x + width, y + height
+            ]), gl.STATIC_DRAW);
+
+
+            gl.uniform2f(resolutionLocation, canvas.width, canvas.height);
+            gl.uniform4fv(colorLocation, color);
+            gl.drawArrays(gl.TRIANGLES, 0, 6);
+        }
+
     </script>
 </body>
 </html>
