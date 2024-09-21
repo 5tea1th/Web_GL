@@ -46,6 +46,17 @@
                     gl_Position = vec4(clipSpace * vec2(1, -1), 0, 1);
                 }
             `;
+            const vertexShader = createShader(gl.VERTEX_SHADER, vertexShaderSource);
+
+
+            // Fragment shader
+            const fragmentShaderSource = `
+                precision mediump float;
+                uniform vec4 u_color;
+                void main() {
+                    gl_FragColor = u_color;
+                }
+            `;
 
         }
     </script>
