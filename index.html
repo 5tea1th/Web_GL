@@ -199,8 +199,16 @@
             }
         }
 
-
-
+        window.addEventListener('keydown', () => {
+            bird.velocity = bird.lift;
+        });
+        window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        gl.viewport(0, 0, canvas.width, canvas.height);
+        });
+        
+        gameLoop();
 
     </script>
 </body>
