@@ -57,8 +57,17 @@
                     gl_FragColor = u_color;
                 }
             `;
+            const fragmentShader = createShader(gl.FRAGMENT_SHADER, fragmentShaderSource);
 
+
+            // Link shaders into a program
+            const program = createProgram(vertexShader, fragmentShader);
+            gl.useProgram(program);
+
+
+            return program;
         }
+
     </script>
 </body>
 </html>
