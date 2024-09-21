@@ -117,6 +117,23 @@
             gl.uniform4fv(colorLocation, color);
             gl.drawArrays(gl.TRIANGLES, 0, 6);
         }
+        
+        function updateBird() {
+            bird.velocity += bird.gravity;
+            bird.y += bird.velocity;
+
+
+            if (bird.y > canvas.height) {
+                bird.y = canvas.height;
+                bird.velocity = 0;
+            }
+
+
+            if (bird.y < 0) {
+                bird.y = 0;
+                bird.velocity = 0;
+            }
+        }
 
     </script>
 </body>
